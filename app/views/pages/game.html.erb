@@ -1,0 +1,16 @@
+<% if @number == 20 %>
+  <h1>Someone wins!</h1>
+<% elsif @number > 20 %>
+  <h1>You really don't know how to play this game do you?</h1>
+<% end %>
+
+<h2><%= @number %></h2>
+
+<!-- <a href="/update-game?increment=3">three</a> -->
+<%= form_tag("update-game") do %>
+  <% options = [[1,1], [2,2], [3,3]] %>
+  <%= select_tag(:increment, options_for_select(options)) %>
+  <%= submit_tag "Submit"%>
+<% end -%>
+<br><br><br><br>
+<a href="/reset">reset game</a>
